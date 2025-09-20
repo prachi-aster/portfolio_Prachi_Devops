@@ -1,8 +1,6 @@
 pipeline {
     agent any
 
-    echo "test"
-
     tools {
         maven 'Maven3'  // The name you gave in Global Tool Configuration
     }
@@ -17,14 +15,14 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                sh 'mvn clean compile'
                 echo 'Build successful'
             }
         }
 
         stage('Run') {
             steps {
-                bat 'mvn spring-boot:run'
+                sh 'mvn spring-boot:run'
             }
         }
     }
