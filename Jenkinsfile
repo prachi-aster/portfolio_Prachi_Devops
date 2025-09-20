@@ -1,27 +1,25 @@
-pipeline{
-  agent any;
-  stages{
-    stage("cloning code")
-    {
-      steps{
-        git url : "https://github.com/prachi-aster/portfolio_Prachi_Devops.git" , branch : "master"
-      }
+pipeline {
+    agent any
+
+    stages {
+        stage('Cloning Code') {
+            steps {
+                git branch: 'master', url: 'https://github.com/prachi-aster/portfolio_Prachi_Devops.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                bat "mvn clean install"
+                echo "Build successful"
+            }
+        }
+
+        stage('Run') {
+            steps {
+                bat "mvn spring-boot:run"
+                echo "Application is up and running"
+            }
+        }
     }
-    stage("build")
-    {
-      steps{
-        bat "mvn clean compile"
-      echo "build successful"
-      }
-    }
-    stage("deploy")
-    {
-      steps{
-        bat "mvn install"
-      echo "application is up and running"
-      }
-    }
-  }
 }
-
-
