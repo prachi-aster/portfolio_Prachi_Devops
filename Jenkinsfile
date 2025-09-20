@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'Maven39'  // The name you gave Maven in Global Tool Configuration
+        jdk 'JDK21'      // The name you gave JDK in Global Tool Configuration
+    }
+
     stages {
         stage('Cloning Code') {
             steps {
@@ -17,7 +22,6 @@ pipeline {
 
         stage('Run') {
             steps {
-                // Run Spring Boot and wait for it to finish (do not detach)
                 bat 'mvn spring-boot:run'
             }
         }
