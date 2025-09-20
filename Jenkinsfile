@@ -1,6 +1,8 @@
 pipeline {
     agent any
 
+    echo "test"
+
     tools {
         maven 'Maven3'  // The name you gave in Global Tool Configuration
     }
@@ -8,7 +10,8 @@ pipeline {
     stages {
         stage('Cloning Code') {
             steps {
-                git branch: 'master', url: 'https://github.com/prachi-aster/portfolio_Prachi_Devops.git'
+                //git branch: 'master', url: 'https://github.com/prachi-aster/portfolio_Prachi_Devops.git'
+                echo "I am here"
             }
         }
 
