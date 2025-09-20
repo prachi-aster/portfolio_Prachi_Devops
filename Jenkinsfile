@@ -10,7 +10,6 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Windows Maven build
                 bat 'mvn clean compile'
                 echo 'Build successful'
             }
@@ -18,9 +17,8 @@ pipeline {
 
         stage('Run') {
             steps {
-                // Start Spring Boot in background on Windows
-                bat 'start /B mvn spring-boot:run'
-                echo 'Application started in background'
+                // Run Spring Boot and wait for it to finish (do not detach)
+                bat 'mvn spring-boot:run'
             }
         }
     }
