@@ -10,17 +10,16 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh "mvn clean compile"
+                bat "mvn clean compile"
                 echo "Build successful"
             }
         }
 
         stage('Run') {
             steps {
-                sh "mvn spring-boot:run"
+                bat "mvn spring-boot:run"
                 echo "Application is up and running"
             }
         }
     }
 }
-
