@@ -9,7 +9,8 @@ pipeline {
     stages {
         stage('Cloning Code') {
             steps {
-                git branch : 'master', url : 'https://github.com/prachi-aster/portfolio_Prachi_Devops.git'
+                //git branch : 'master', url : 'https://github.com/prachi-aster/portfolio_Prachi_Devops.git'
+                checkout scm
             }
         }
 
@@ -27,4 +28,5 @@ pipeline {
         }
     }
 }
+
 
