@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "/opt/maven/bin:${env.PATH}"
+    }
+
     //tools {
        // maven 'Maven3'  // The name you gave in Global Tool Configuration
    // }
