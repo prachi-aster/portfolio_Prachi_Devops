@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh "mvn clean install"
+                sh "mvn clean compile"
                 echo "Build successful"
             }
         }
@@ -23,4 +23,5 @@ pipeline {
         }
     }
 }
+
 
