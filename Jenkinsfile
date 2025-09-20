@@ -10,6 +10,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                // Windows command for Maven build
                 bat "mvn clean compile"
                 echo "Build successful"
             }
@@ -17,6 +18,7 @@ pipeline {
 
         stage('Run') {
             steps {
+                // Windows command for running Spring Boot
                 bat "mvn spring-boot:run"
                 echo "Application is up and running"
             }
